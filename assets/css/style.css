@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(../imgs/marvels-el-hombre-arana-2-venom-symbiote-logo_3840x2160_xtrafondos.com.jpg);
+  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#main_content {
+  padding-top: 100px;
+  flex: 1;
+  display: flex;
+  gap: 3%;
+}
+
+aside {
+  padding: 10px;
+  width: 65%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+main {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+header, footer {
+  width: 100%;
+  background: #212121;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  /* text-decoration: none; */
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+li {
+  margin-top: 8px;
+  padding: 20px;
+}
+
+a {
+  color: white;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+figure {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  height: 50%;
+  padding: 10px;
+}
+
+.figure_images_main {
+  grid-column: span 2;
+  background-image: #000;
+  border-radius: 5px;
+}
+
+.figure_images_two {
+  background-color: red;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.figure_images_one {
+  background-color: aqua;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.yellow {
+  background: #f6e280;
+}
+
+.blue {
+  background-color: #8ec1ff;
+}
+
+.image-logo-marvel {
+  margin: 10px;
+}
+
+#first_content {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 900px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+  color: white;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
