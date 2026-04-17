@@ -1,115 +1,687 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  gap: 2%;
-}
-
-#main_content {
-  padding-top: 100px;
-  flex: 1;
-  display: flex;
-  gap: 3%;
-}
-
-aside {
-  padding: 10px;
-  width: 65%;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-main {
-  flex: 1;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-}
-
-header, footer {
-  height: 60px;
-  width: 100%;
-  background: rgb(33, 33, 33);
-  display: flex;
-  justify-content: center;
-}
-
-ul {
-  /* text-decoration: none; */
-  list-style: none;
-  display: flex;
-  gap: 10px;
-}
-
-li {
-  margin-top: 14px;
-  background-color: #F0131E;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(8, 8, 10, 0.2), rgba(8, 8, 10, 0.95)), #08080a;
+  color: #fff;
+  font-family: "Marvel", sans-serif;
 }
 
 a {
-  color: white;
-  font-family: "Marvel", sans-serif;
-  font-weight: bolder;
-  font-style: normal;
+  color: inherit;
   text-decoration: none;
-  font-size: 20px;
-  margin-top: 1px;
 }
 
-figure {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  height: 50%;
-  padding: 10px;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-.figure_images_main {
-  grid-column: span 2;
-  background-image: #000;
-  border-radius: 5px;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(12, 12, 14, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.figure_images_two {
-  background-color: red;
-  width: 100%;
-  border-radius: 5px;
+.header-shell,
+.content-shell {
+  width: min(1120px, 100% - 32px);
+  margin: 0 auto;
 }
 
-.figure_images_one {
-  background-color: aqua;
-  width: 100%;
-  border-radius: 5px;
+.header-shell {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.yellow {
-  background: #f6e280;
-}
-
-.blue {
-  background-color: #8ec1ff;
+.brand {
+  flex-shrink: 0;
 }
 
 .image-logo-marvel {
-  margin: 10px;
-  height: 35px;
+  height: 40px;
 }
 
-#first_content {
-  height: 950px;
+.menu-button {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.menu-button img {
+  width: 32px;
+  height: 32px;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-nav li {
+  background: #e11d24;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-nav li:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18), 0 10px 24px rgba(240, 19, 30, 0.28);
+}
+
+.site-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 14px;
+}
+
+.nav-label {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  padding-bottom: 72px;
+}
+
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: flex-end;
+  padding: 72px 0 56px;
   background-image: url(../imgs/marvels-el-hombre-arana-2-venom-symbiote-logo_3840x2160_xtrafondos.com.jpg);
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
-.modify-text-li {
-  margin-top: 2px;
-  height: 25px;
-  padding-left: 3px;
-  padding-right: 3px;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 5, 7, 0.92) 0%, rgba(5, 5, 7, 0.72) 38%, rgba(5, 5, 7, 0.28) 100%), linear-gradient(180deg, rgba(5, 5, 7, 0.05) 0%, rgba(5, 5, 7, 0.78) 100%);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100% - 32px);
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.eyebrow,
+.section-tag,
+.hero-card span,
+.mini-card span {
+  display: inline-flex;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrow,
+.section-tag {
+  margin-bottom: 18px;
+  color: #f6e280;
+  font-size: 1rem;
+}
+
+.hero-copy h1 {
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-copy p {
+  max-width: 560px;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.hero-actions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.cta-primary,
+.cta-secondary {
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cta-primary {
+  background: #f0131e;
+  box-shadow: 0 18px 40px rgba(240, 19, 30, 0.28);
+}
+
+.cta-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.content-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.trailer-shell {
+  width: min(1120px, 100% - 32px);
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+}
+
+.comics-shell {
+  width: min(1120px, 100% - 32px);
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+}
+
+.comics-copy {
+  max-width: 760px;
+}
+
+.comics-copy h2 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.comics-copy p {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.comics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.comic-card {
+  position: relative;
+  min-height: 340px;
+  padding: 24px;
+  text-align: left;
+  color: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+  isolation: isolate;
+  background-color: #111;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comic-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.8) 100%), linear-gradient(45deg, rgba(240, 19, 30, 0.35), transparent 45%);
+}
+
+.comic-card__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 42%), linear-gradient(180deg, rgba(15, 15, 18, 0.25), rgba(15, 15, 18, 0.55));
+}
+
+.comic-card__art canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.comic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.34);
+}
+
+.comic-card.is-active {
+  outline: 2px solid rgba(246, 226, 128, 0.85);
+  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.38);
+}
+
+.comic-card__label {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.comic-card [data-comic-card-title] {
+  word-break: break-word;
+}
+
+.comic-card h3 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  max-width: 300px;
+}
+
+.comic-card p {
+  margin-top: 14px;
+  font-family: Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.comic-viewer {
+  padding: 24px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(18, 18, 24, 0.96), rgba(7, 7, 10, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.24);
+}
+
+.comic-viewer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.comic-viewer__header h3 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.comic-viewer__download {
+  min-height: 46px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #f0131e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.comic-viewer__frame {
+  width: 100%;
+  height: min(78vh, 960px);
+  border: 0;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.trailer-copy {
+  max-width: 760px;
+}
+
+.trailer-copy h2 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.trailer-copy p {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.trailer-player {
+  position: relative;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #050507;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.28);
+  aspect-ratio: 16/9;
+}
+
+.trailer-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.trailer-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.58)), linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 42%);
+}
+
+.trailer-media img,
+.trailer-media iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+.trailer-player.is-playing .trailer-media::after,
+.trailer-player.is-playing .trailer-play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.trailer-play {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: rgba(240, 19, 30, 0.92);
+  color: #fff;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.trailer-player:hover .trailer-play {
+  transform: translateY(-2px);
+}
+
+.play-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  display: inline-grid;
+  place-items: center;
+}
+
+.play-icon::before {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid #fff;
+}
+
+.feature-panel,
+.cards-panel {
+  min-width: 0;
+}
+
+.feature-panel {
+  padding: 32px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(22, 22, 28, 0.96), rgba(10, 10, 14, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.feature-panel h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.feature-panel p,
+.mini-card p {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.feature-banner {
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 22px;
+  background: radial-gradient(circle at top, rgba(240, 19, 30, 0.24), transparent 60%), #121218;
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+}
+
+.cards-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.hero-card,
+.mini-card {
+  border-radius: 28px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 220px;
+}
+
+.hero-card {
+  grid-column: 1/-1;
+  min-height: 320px;
+}
+
+.hero-card span,
+.mini-card span {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.hero-card h3 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  max-width: 420px;
+}
+
+.card-red {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.72)), linear-gradient(135deg, #ff402b, #7c0013);
+}
+
+.card-gold {
+  background: linear-gradient(135deg, #f6e280, #b78c1e);
+  color: #1a1200;
+}
+
+.card-gold p {
+  color: rgba(26, 18, 0, 0.82);
+}
+
+.card-blue {
+  background: linear-gradient(135deg, #8ec1ff, #214b98);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0b0b0f;
+  padding: 24px 16px 36px;
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+@media (max-width: 860px) {
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .site-nav {
+    position: relative;
+  }
+  .site-nav ul {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    min-width: 200px;
+    padding: 14px;
+    border-radius: 20px;
+    background: rgba(12, 12, 14, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.28);
+    flex-direction: column;
+    align-items: stretch;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  }
+  .site-nav ul.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .site-nav li {
+    width: 100%;
+  }
+  .site-nav a {
+    justify-content: center;
+    width: 100%;
+  }
+  .content-shell {
+    grid-template-columns: 1fr;
+  }
+  .comics-grid {
+    grid-template-columns: 1fr;
+  }
+  .comic-viewer__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .header-shell,
+  .content-shell,
+  .trailer-shell,
+  .comics-shell,
+  .hero-copy {
+    width: min(100% - 24px, 1120px);
+  }
+  .hero-section {
+    align-items: center;
+    min-height: 90vh;
+    padding: 56px 0 48px;
+    background-position: 68% center;
+  }
+  .hero-copy h1,
+  .feature-panel h2,
+  .hero-card h3 {
+    line-height: 1;
+  }
+  .feature-panel,
+  .hero-card,
+  .mini-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+  .cards-panel {
+    grid-template-columns: 1fr;
+  }
+  .hero-card {
+    min-height: 260px;
+  }
+  .hero-actions {
+    flex-direction: column;
+  }
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  .trailer-player {
+    border-radius: 22px;
+  }
+  .comic-card {
+    min-height: 300px;
+    padding: 22px;
+    border-radius: 22px;
+  }
+  .comic-viewer {
+    padding: 18px;
+    border-radius: 22px;
+  }
+  .comic-viewer__frame {
+    height: 70vh;
+    border-radius: 16px;
+  }
+  .trailer-play {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: center;
+    padding: 12px 18px;
+    gap: 12px;
+    font-size: 1rem;
+  }
+  .play-icon {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

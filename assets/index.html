@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,45 +10,156 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://www.fontspace.com/marvel-font-f32182">
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 
 <body>
-    <header>
-        <img class="image-logo-marvel" src="./imgs/marvel-logo.svg" alt="">
-        <h1 class="title"></h1>
-        <nav>
-            <ul id="menu">
-                <li><img class="modify-text-li" src="/page-marvel/assets/imgs/text-1776359514921.png" alt=""></li>
-                <li><img class="modify-text-li" src="/page-marvel/assets/imgs/text-1776360484360.png" alt=""></li>
-                <li><img class="modify-text-li" src="/page-marvel/assets/imgs/text-1776361405206.png" alt=""></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="header-shell">
+            <a class="brand" href="#">
+                <img class="image-logo-marvel" src="./imgs/marvel-logo.svg" alt="Marvel">
+            </a>
+
+            <button id="menuBtn" class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <img src="./imgs/menu_34dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" alt="">
+            </button>
+
+            <nav class="site-nav" aria-label="Principal">
+                <ul id="menu">
+                    <li><a href="#hero"><span class="nav-label">Inicio</span></a></li>
+                    <li><a href="#comics"><span class="nav-label">Comics</span></a></li>
+                    <li><a href="#footer"><span class="nav-label">Noticias</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-        <section>
-            <div id="first_content">
-                    <h1>hola</h1>
+
+    <main class="page-content">
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-copy">
+                <span class="eyebrow">Marvel Universe</span>
+                <h1>Historias gigantes, heroes legendarios y un universo siempre en movimiento.</h1>
+                <p>Una landing con energia cinematografica para presentar personajes, estrenos y momentos iconicos sin que el layout se rompa al bajar hacia el footer.</p>
+                <div class="hero-actions">
+                    <a href="#universo" class="cta-primary">Explorar universo</a>
+                    <a href="#destacados" class="cta-secondary">Ver destacados</a>
+                </div>
             </div>
         </section>
-    <div id="main_content" class="">
-        <aside></aside>
-        <main>
-            <figure>
-                <img src="" class="figure_images_main figure_images_one" alt="">
-                <img src="" class="figure_images yellow" alt="">
-                <img src="" class="figure_images blue" alt="">
-            </figure>
-            <figure>
-                <img src="" class="figure_images_main figure_images_two" alt="">
-                <img src="" class="figure_images yellow" alt="">
-                <img src="" class="figure_images blue" alt="">
-            </figure>
-        </main>
-    </div>
-    <footer></footer>
-    <script src="js/script.js"></script>
+
+        <section id="universo" class="content-shell">
+            <aside class="feature-panel">
+                <span class="section-tag">Ahora en Marvel</span>
+                <h2>Un bloque lateral que ya no flota ni empuja mal el resto del contenido.</h2>
+                <p>Reorganice la base para que esta zona y las tarjetas de la derecha compartan el mismo contenedor, con alturas, espaciados y alineaciones consistentes.</p>
+                <div class="feature-banner">
+                    <img src="./imgs/daredevilbornagains2_lob_log_def_01.png" alt="Daredevil Born Again">
+                </div>
+            </aside>
+
+            <section id="destacados" class="cards-panel">
+                <article class="hero-card card-red">
+                    <span>Spider-Man</span>
+                    <h3>El simbionte llega con una presencia mas agresiva y cinematografica.</h3>
+                </article>
+
+                <article class="mini-card card-gold">
+                    <span>Comics</span>
+                    <p>Explora la coleccion en PDF desde una galeria visual conectada a cada archivo.</p>
+                </article>
+
+                <article class="mini-card card-blue">
+                    <span>Series</span>
+                    <p>Un espacio flexible para trailers, anuncios o proximos lanzamientos.</p>
+                </article>
+            </section>
+        </section>
+
+        <section class="trailer-shell">
+            <div class="trailer-copy">
+                <span class="section-tag">Trailer destacado</span>
+                <h2>Spider-Man: Brand New Day</h2>
+                <p>La portada se muestra primero y al hacer clic se reemplaza por el trailer embebido de YouTube sin sacar al usuario de la landing.</p>
+            </div>
+
+            <button
+                class="trailer-player"
+                type="button"
+                data-trailer-button
+                data-video-id="owfWVJoxXR4"
+                aria-label="Reproducir trailer de Spider-Man Brand New Day">
+                <span class="trailer-media" data-trailer-media>
+                    <img src="./imgs/spiderman-brand-new-day-trailer.jpg" alt="Spider-Man Brand New Day official teaser">
+                </span>
+                <span class="trailer-play">
+                    <span class="play-icon"></span>
+                    Ver trailer
+                </span>
+            </button>
+        </section>
+
+        <section id="comics" class="comics-shell">
+            <div class="comics-copy">
+                <span class="section-tag">Comic vault</span>
+                <h2>Tu biblioteca Marvel ya vive dentro de la landing.</h2>
+                <p>Cada tarjeta usa la portada real del PDF y al dar clic el comic se carga aqui mismo, dentro de la pagina.</p>
+            </div>
+
+            <div class="comics-grid">
+                <button class="comic-card" type="button" data-comic-card data-pdf="./pdf-comic/1.pdf" data-fallback-title="Comic 1">
+                    <span class="comic-card__art" data-pdf-cover></span>
+                    <span class="comic-card__label">PDF 01</span>
+                    <h3 data-comic-card-title>Cargando titulo...</h3>
+                    <p>Ver dentro de la landing</p>
+                </button>
+
+                <button class="comic-card" type="button" data-comic-card data-pdf="./pdf-comic/4.pdf" data-fallback-title="Comic 4">
+                    <span class="comic-card__art" data-pdf-cover></span>
+                    <span class="comic-card__label">PDF 04</span>
+                    <h3 data-comic-card-title>Cargando titulo...</h3>
+                    <p>Leer sin salir de la pagina</p>
+                </button>
+
+                <button class="comic-card" type="button" data-comic-card data-pdf="./pdf-comic/13.pdf" data-fallback-title="Comic 13">
+                    <span class="comic-card__art" data-pdf-cover></span>
+                    <span class="comic-card__label">PDF 13</span>
+                    <h3 data-comic-card-title>Cargando titulo...</h3>
+                    <p>Explorar edicion aqui</p>
+                </button>
+
+                <button class="comic-card" type="button" data-comic-card data-pdf="./pdf-comic/1_domsob1%20-%20Desconocido.pdf" data-fallback-title="Comic especial">
+                    <span class="comic-card__art" data-pdf-cover></span>
+                    <span class="comic-card__label">Especial</span>
+                    <h3 data-comic-card-title>Cargando titulo...</h3>
+                    <p>Ver comic completo aqui</p>
+                </button>
+            </div>
+
+            <div class="comic-viewer" id="comic-viewer">
+                <div class="comic-viewer__header">
+                    <div>
+                        <span class="section-tag">Lector</span>
+                        <h3 data-comic-title>Spider-Man Issue 1</h3>
+                    </div>
+                    <a class="comic-viewer__download" data-comic-download href="./pdf-comic/1.pdf" download>Descargar PDF</a>
+                </div>
+
+                <iframe
+                    class="comic-viewer__frame"
+                    data-comic-frame
+                    src="./pdf-comic/1.pdf#view=FitH"
+                    title="Comic viewer">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="site-footer">
+        <p>Marvel landing experience</p>
+    </footer>
+
+    <script type="module" src="./js/script.js"></script>
 </body>
 
 </html>
